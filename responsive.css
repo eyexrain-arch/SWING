@@ -1,0 +1,78 @@
+/* Footer, mobile bottom nav and responsive (media query) overrides */
+.app-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+.app-footer .links { display: flex; gap: 18px; }
+
+.mobile-nav { display: none; }
+
+@media (max-width: 1000px) { .side-col { display: none; } }
+@media (max-width: 720px) {
+  .sidebar { display: none; }
+  .main { padding: 14px 14px 84px; }
+
+  /* ---------- Bottom nav: compact, icon-only, outline/filled toggle ---------- */
+  .mobile-nav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    background: #ffffff; border-top: 1px solid var(--border);
+    box-shadow: 0 -1px 12px rgba(42,22,32,0.05);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .mobile-nav-item {
+    flex: 1; height: 56px; border: none; background: transparent; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #b3a2ab; position: relative; -webkit-tap-highlight-color: transparent;
+    transition: color 0.18s ease, transform 0.18s ease;
+  }
+  .mobile-nav-item:active { transform: scale(0.9); }
+  .mobile-nav-item .icon { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; }
+  .mobile-nav-item .icon svg { width: 23px; height: 23px; transition: opacity 0.15s ease; }
+  .mobile-nav-item .icon-filled { display: none; }
+  .mobile-nav-item.active { color: var(--pink-600); }
+  .mobile-nav-item.active .icon-outline { display: none; }
+  .mobile-nav-item.active .icon-filled { display: block; }
+  .mobile-nav-item .nav-dot {
+    position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%) scale(0.4);
+    width: 4px; height: 4px; border-radius: 50%; background: var(--pink-600);
+    opacity: 0; transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .mobile-nav-item.active:not(.mobile-nav-fab) .nav-dot { opacity: 1; transform: translateX(-50%) scale(1); }
+  .mobile-nav-item .mnav-badge {
+    position: absolute; top: 4px; right: calc(50% - 20px); background: var(--pink-600); color: white;
+    font-size: 9px; font-weight: 800; min-width: 14px; height: 14px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center; padding: 0 3px;
+  }
+  .mobile-nav-fab {
+    position: relative;
+  }
+  .mobile-nav-fab .icon {
+    position: relative; top: -14px; width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(155deg, var(--pink-500), var(--pink-600));
+    color: white; box-shadow: 0 6px 16px rgba(179,36,90,0.4);
+  }
+  .mobile-nav-fab .icon svg { width: 21px; height: 21px; }
+  .mobile-nav-fab .icon-filled { display: block; }
+  .mobile-nav-fab .icon-outline { display: none; }
+  @media (prefers-color-scheme: dark) {
+    .mobile-nav { background: #17181c; border-top-color: rgba(255,255,255,0.08); box-shadow: 0 -1px 16px rgba(0,0,0,0.35); }
+    .mobile-nav-item { color: #6e7079; }
+    .mobile-nav-item.active { color: #ff6f93; }
+    .mobile-nav-item.active .nav-dot { background: #ff6f93; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav-item, .mobile-nav-item .icon svg, .mobile-nav-item .nav-dot { transition: none; }
+  }
+  .chat-panel { height: calc(100vh - 200px); height: calc(100dvh - 200px); }
+  .chat-input-row { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  body.chat-open .mobile-nav { display: none; }
+  body.chat-open .main { padding-bottom: 14px; }
+  body.chat-open .topbar { display: none; }
+  body.chat-open .chat-panel { height: calc(100vh - 32px); height: calc(100dvh - 32px); }
+  input, textarea, select { font-size: 16px !important; }
+  .topbar { flex-wrap: wrap; row-gap: 10px; }
+  .topbar h1 { font-size: 21px; }
+  .content-grid { gap: 16px; }
+  .swipe-photo { aspect-ratio: 3 / 4; min-height: 0; }
+  .chat-input-row button, .profile-form button, .admirer-card button { min-height: 44px; }
+  .swipe-actions button, .icon-btn, .back-btn, .nav-item, .mobile-nav-item { min-height: 44px; }
+}
+

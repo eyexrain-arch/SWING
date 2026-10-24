@@ -1,0 +1,334 @@
+/* Discover: card panel, lightbox, photo crop, carousel, explore grid, list, profile modal, block/report sheet */
+/* ---------- Discover card — About Me / Interests / My Vibes panel ---------- */
+.swipe-card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 18px; }
+.swipe-section-title { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: var(--ink); }
+.swipe-section-title .icon-circle { width: 28px; height: 28px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.swipe-section-text { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink); opacity: 0.85; white-space: pre-wrap; }
+.swipe-section-text.empty { opacity: 0.5; font-style: italic; }
+.swipe-vibes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.swipe-vibes-thumb { aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--cream); cursor: pointer; }
+.swipe-vibes-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Photo lightbox (full-size vibes photos) ---------- */
+.photo-lightbox-overlay {
+  display: none; position: fixed; inset: 0; z-index: 300;
+  background: rgba(10,4,8,0.92); align-items: center; justify-content: center; padding: 40px 16px;
+}
+.photo-lightbox-overlay.visible { display: flex; }
+.photo-lightbox-overlay img {
+  max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.photo-lightbox-close, .photo-lightbox-nav {
+  position: fixed; border: none; background: rgba(255,255,255,0.12); color: white;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; backdrop-filter: blur(2px);
+}
+.photo-lightbox-close:hover, .photo-lightbox-nav:hover { background: rgba(255,255,255,0.22); }
+.photo-lightbox-close { top: 18px; right: 18px; width: 40px; height: 40px; }
+.photo-lightbox-nav { top: 50%; transform: translateY(-50%); width: 48px; height: 48px; }
+.photo-lightbox-prev { left: 18px; }
+.photo-lightbox-next { right: 18px; }
+.photo-lightbox-nav:disabled { opacity: 0.25; cursor: default; }
+.photo-lightbox-counter {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  color: white; font-size: 12.5px; opacity: 0.8; background: rgba(255,255,255,0.12);
+  padding: 4px 12px; border-radius: 999px;
+}
+@media (max-width: 560px) {
+  .photo-lightbox-nav { width: 40px; height: 40px; }
+}
+
+/* ---------- Profile photo crop step ---------- */
+.photo-crop-overlay {
+  display: none; position: fixed; inset: 0; z-index: 320;
+  background: rgba(10,4,8,0.92); align-items: center; justify-content: center; padding: 20px;
+}
+.photo-crop-overlay.visible { display: flex; }
+.photo-crop-modal {
+  width: 100%; max-width: 420px; background: var(--card); border-radius: 18px;
+  padding: 18px; display: flex; flex-direction: column; gap: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.photo-crop-header { font-weight: 700; font-size: 16px; text-align: center; }
+/* Fixed 3:4 stage. The image inside is absolutely positioned and moved/
+   scaled via a JS-driven transform (drag to pan, wheel/pinch to zoom) —
+   whatever's visible inside this box on confirm is exactly what gets
+   uploaded, so every profile photo ends up the same 3:4 portrait shape. */
+.photo-crop-stage {
+  position: relative; width: 100%; aspect-ratio: 3 / 4; background: #000;
+  border-radius: 12px; overflow: hidden; touch-action: none; cursor: grab;
+}
+.photo-crop-stage.dragging { cursor: grabbing; }
+.photo-crop-stage img {
+  position: absolute; top: 0; left: 0; max-width: none; max-height: none;
+  will-change: transform; user-select: none; -webkit-user-drag: none; pointer-events: none;
+}
+.photo-crop-hint { text-align: center; font-size: 12px; color: var(--muted); }
+.photo-crop-actions { display: flex; gap: 10px; }
+.photo-crop-actions button { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: 600; font-size: 14px; }
+.photo-crop-cancel { background: var(--cream); color: var(--ink); }
+.photo-crop-confirm { background: var(--pink-600); color: white; }
+.photo-crop-confirm:disabled { opacity: 0.6; }
+
+.swipe-actions { display: flex; justify-content: center; align-items: center; gap: 18px; padding: 22px 0 6px; }
+.swipe-actions button { border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.act-pass { width: 62px; height: 62px; background: white; color: #d8536b; font-size: 24px; }
+.act-like { width: 62px; height: 62px; background: linear-gradient(135deg, var(--pink-500), var(--pink-600)); color: white; font-size: 24px; }
+.swipe-hint { text-align: center; font-size: 12.5px; color: var(--muted); }
+#discover-explore-hint { margin-bottom: 4px; }
+
+/* ---------- Discover — horizontal scrolling carousel ---------- */
+/* Profiles scroll left-to-right like a filmstrip. There's no "pass" —
+   scrolling past a profile just moves on; tapping the heart on a card
+   likes it. */
+.discover-stack-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.discover-stack-nav-wrap { position: relative; width: 100%; max-width: min(760px, 100%); margin: 0 auto; }
+.discover-nav-btn {
+  display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: none;
+  background: white; box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+  color: var(--ink); align-items: center; justify-content: center;
+  cursor: pointer; z-index: 6;
+}
+.discover-nav-btn:disabled { opacity: 0.3; cursor: default; }
+.discover-nav-prev { left: -58px; }
+.discover-nav-next { right: -58px; }
+@media (min-width: 721px) {
+  .discover-nav-btn { display: flex; }
+}
+.discover-stack {
+  position: relative; width: 100%; max-width: min(900px, 100%); margin: 0 auto;
+}
+/* Only the "may like" carousel gets a fixed min-height — matching a
+   card's photo height (width * 5/4 aspect ratio) at each breakpoint
+   below — so that area holds its size whether it's showing cards or
+   an empty-state message ("no more profiles"). The row-list tabs
+   (Liked/Nearby/New) size to their own content as before. */
+.discover-stack.discover-stack--carousel { min-height: 620px; }
+.discover-stack .empty-state { position: static; }
+.discover-stack.discover-stack--carousel .empty-state {
+  height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.discover-carousel {
+  display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 0;
+  overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px;
+}
+.discover-carousel::-webkit-scrollbar { display: none; }
+/* Each slide is exactly the full width of the carousel track, so only one
+   profile is ever visible/snapped at a time — scroll sideways to the
+   next one, rather than several cards peeking side by side. Deliberately
+   NOT capped with max-width here: doing that shrinks the flex item's own
+   footprint in the track, so on a wide/laptop screen several capped-width
+   slides fit side by side and a single scroll advances by less than one
+   full profile. The visual size cap instead lives on .discover-carousel-photo
+   below, which only narrows the card's *content* — each slide still spans
+   the full track width, so scrolling always moves exactly one profile. */
+.discover-carousel-card {
+  flex: 0 0 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+@media (max-width: 900px) {
+  .discover-stack.discover-stack--carousel { min-height: 560px; }
+}
+@media (max-width: 560px) {
+  .discover-stack.discover-stack--carousel { min-height: 400px; }
+}
+@media (max-width: 380px) {
+  .discover-stack.discover-stack--carousel { min-height: 350px; }
+}
+/* max-width only ever matters once the track is wider than 480px
+   (tablets/laptops) — phones are already narrower than that, so this
+   doesn't change anything there. Without it, the photo scaled all the
+   way up to the .discover-stack cap (900px), looking oversized next to
+   every other ~440-520px panel in the app on a laptop screen. */
+.discover-carousel-photo {
+  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 22px; overflow: hidden;
+  box-shadow: 0 10px 40px rgba(75,20,45,0.1); cursor: pointer; transition: box-shadow 0.2s ease;
+}
+.discover-carousel-photo .swipe-details .name-row { font-size: 22px; }
+/* The Pass/Like buttons below the carousel act on whichever card is
+   currently snapped into view — ring it in pink so that's clear. */
+.discover-carousel-card.is-current .discover-carousel-photo {
+  box-shadow: 0 0 0 3px var(--pink-500), 0 10px 40px rgba(75,20,45,0.1);
+}
+@keyframes carousel-like-pop { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.discover-stack-actions button.tap-pop { animation: carousel-like-pop 0.3s ease; }
+
+.discover-section { width: 100%; max-width: 760px; margin: 0 auto 22px; }
+.discover-section-title { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: var(--ink); margin: 4px 0 10px; }
+.discover-section-title span { font-size: 11px; font-weight: 700; color: var(--muted); background: var(--cream); border-radius: 999px; padding: 3px 8px; }
+.discover-like-section { margin-bottom: 0; }
+
+/* ---------- Explore — grid of many profiles at once ---------- */
+.explore-panel { width: 100%; max-width: 900px; margin: 0 auto; }
+.explore-header { margin-bottom: 16px; }
+.explore-title { font-size: 22px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.explore-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px;
+}
+.explore-card {
+  position: relative; aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(75,20,45,0.08); transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.explore-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(75,20,45,0.14); }
+.explore-card-photo {
+  width: 100%; height: 100%; background-size: cover; background-position: center;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.explore-card-info {
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent); color: white; padding: 24px 10px 10px;
+}
+.explore-card-name { font-size: 13.5px; font-weight: 700; }
+.explore-card-loc { font-size: 11px; opacity: 0.9; }
+@media (max-width: 480px) {
+  .explore-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+}
+
+/* ---------- Discover — list layout ---------- */
+.discover-row {
+  display: flex; align-items: flex-start; gap: 14px; background: white; border-radius: 18px;
+  padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; cursor: pointer;
+}
+.discover-row-photo {
+  width: 92px; height: 92px; border-radius: 14px; background-size: cover; background-position: center;
+  flex-shrink: 0; background-color: var(--cream);
+}
+.discover-row-body { flex: 1; min-width: 0; padding-right: 30px; }
+.discover-row-name { font-weight: 800; font-size: 15.5px; color: var(--ink); display: flex; align-items: center; gap: 7px; }
+.discover-row-loc { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.discover-row-bio {
+  font-size: 12.5px; color: var(--ink); opacity: 0.85; margin-top: 6px; line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.discover-row-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.discover-row-tags span { background: var(--cream); color: var(--ink); font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 20px; }
+.discover-row-like {
+  align-self: center; width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  background: var(--pink-100); color: var(--pink-600); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.discover-row-kebab {
+  position: absolute; top: 12px; right: 10px; background: none; border: none; color: var(--muted);
+  cursor: pointer; padding: 6px; display: flex; z-index: 2;
+}
+.discover-row-menu {
+  display: none; position: absolute; top: 38px; right: 10px; background: white; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14); padding: 6px; z-index: 5; min-width: 150px;
+}
+.discover-row-menu.open { display: block; }
+.discover-row-menu button {
+  display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 10px;
+  font-size: 13px; font-weight: 600; color: var(--ink); border-radius: 8px; cursor: pointer;
+}
+.discover-row-menu button:hover { background: var(--cream); }
+
+/* ---------- Discover — full profile modal ---------- */
+.candidate-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(20,8,14,0.55); z-index: 60;
+  align-items: flex-start; justify-content: center; padding: 30px 16px; overflow-y: auto;
+}
+.candidate-modal-overlay.visible { display: flex; }
+.candidate-modal { background: white; border-radius: 24px; max-width: 440px; width: 100%; overflow: hidden; position: relative; margin-bottom: 40px; }
+.candidate-modal-close {
+  position: absolute; top: 14px; right: 14px; z-index: 2; width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(0,0,0,0.4); color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.candidate-modal-menu-btn {
+  position: absolute; top: 14px; right: 56px; z-index: 2; width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(0,0,0,0.4); color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.candidate-modal .swipe-actions { padding: 18px 20px 24px; }
+
+/* ---------- Block / Report action sheet ---------- */
+.action-sheet-overlay {
+  display: none; position: fixed; inset: 0; z-index: 320; background: rgba(20,5,12,0.45);
+  align-items: flex-end; justify-content: center;
+}
+.action-sheet-overlay.open { display: flex; }
+.action-sheet {
+  background: white; border-radius: 20px 20px 0 0; width: 100%; max-width: 440px;
+  padding: 8px 0 max(10px, env(safe-area-inset-bottom)); overflow: hidden;
+}
+.action-sheet-row {
+  width: 100%; padding: 16px 20px; border: none; background: none; text-align: left;
+  font: inherit; font-size: 15px; font-weight: 600; color: var(--ink); display: flex;
+  align-items: center; gap: 12px; cursor: pointer; border-bottom: 1px solid var(--border);
+}
+.action-sheet-row:hover { background: var(--cream); }
+.action-sheet-row:last-child { border-bottom: none; }
+.action-sheet-row.danger { color: #c6284d; }
+.action-sheet-row.cancel { font-weight: 700; justify-content: center; margin-top: 4px; }
+.report-reason-list { padding: 6px 20px 16px; display: flex; flex-direction: column; gap: 8px; }
+.report-reason-list button {
+  padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: white;
+  text-align: left; font: inherit; font-size: 14px; color: var(--ink); cursor: pointer;
+}
+.report-reason-list button:hover { background: var(--cream); }
+.report-reason-list button.selected { background: var(--pink-500); border-color: var(--pink-500); color: white; font-weight: 600; }
+.blocked-user-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.blocked-user-row:last-child { border-bottom: none; }
+.blocked-user-row .avatar { width: 42px; height: 42px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+.blocked-user-row .name { font-weight: 600; font-size: 14.5px; flex: 1; min-width: 0; }
+.blocked-user-row button {
+  padding: 7px 14px; border-radius: 10px; border: 1px solid var(--border); background: white;
+  font: inherit; font-size: 13px; font-weight: 600; color: var(--ink); cursor: pointer; flex-shrink: 0;
+}
+.blocked-user-row button:hover { background: var(--cream); }
+
+.side-card { background: white; border-radius: 18px; padding: 18px; margin-bottom: 18px; }
+.side-card .side-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.side-card .side-head h3 { font-size: 16px; margin: 0; }
+.side-card .side-head a, .side-card .side-head .text-link { font-size: 12.5px; color: var(--pink-600); text-decoration: none; font-weight: 500; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; }
+.side-card .side-head .text-link:hover, .side-card .side-head a:hover { text-decoration: underline; }
+
+.match-avatars { display: flex; gap: 14px; flex-wrap: wrap; }
+.match-avatar-wrap { text-align: center; cursor: pointer; }
+.match-avatar { width: 56px; height: 56px; border-radius: 50%; border: 2.5px solid var(--pink-500); position: relative; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; }
+.match-avatar .heart-badge { position: absolute; bottom: -2px; right: -2px; width: 18px; height: 18px; border-radius: 50%; background: var(--pink-600); color: white; font-size: 9px; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+.match-avatar-wrap .mname { font-size: 11.5px; margin-top: 6px; color: var(--ink); }
+.muted-note { color: var(--muted); font-size: 13px; }
+
+.msg-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+.msg-item:last-child { border-bottom: none; }
+.msg-avatar { width: 40px; height: 40px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.msg-body { flex: 1; min-width: 0; }
+.msg-top { display: flex; justify-content: space-between; font-size: 13px; }
+.msg-top .mname { font-weight: 600; }
+.msg-top .time { color: var(--muted); font-size: 11px; }
+.msg-preview { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; }
+.msg-preview .text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.unread-dot { background: var(--pink-600); color: white; font-size: 10px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.promo-card { background: linear-gradient(135deg, var(--pink-100), #ffd3e2); border-radius: 18px; padding: 20px; }
+.promo-card h4 { margin: 0 0 6px; font-size: 15.5px; }
+.promo-card p { font-size: 12.5px; color: #7a5a66; margin: 0 0 14px; line-height: 1.5; }
+.promo-card button { background: var(--maroon-800); color: white; border: none; padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+
+/* Chat view */
+.chat-panel { background: white; border-radius: 22px; display: flex; flex-direction: column; height: clamp(480px, calc(100dvh - 160px), 760px); }
+.chat-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+.chat-header .back-btn { background: var(--cream); border: none; width: 34px; height: 34px; border-radius: 50%; font-size: 15px; }
+.chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.bubble { max-width: 65%; padding: 10px 14px; border-radius: 16px; font-size: 13.5px; line-height: 1.4; }
+.bubble.mine { align-self: flex-end; background: var(--pink-600); color: white; border-bottom-right-radius: 4px; }
+.bubble.theirs { align-self: flex-start; background: var(--cream); color: var(--ink); border-bottom-left-radius: 4px; }
+.chat-input-row { display: flex; gap: 10px; padding: 16px 20px; border-top: 1px solid var(--border); }
+.chat-input-row input { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid var(--border); border-radius: 10px; outline: none; font-size: 13.5px; }
+.chat-input-row button { background: var(--pink-600); color: white; border: none; padding: 0 18px; border-radius: 10px; font-weight: 600; font-size: 13px; flex-shrink: 0; white-space: nowrap; }
+
+/* Likes You grid */
+.admirer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+.admirer-card { background: white; border-radius: 16px; padding: 16px; text-align: center; }
+.admirer-card .match-avatar { margin: 0 auto 8px; }
+.admirer-card .aname { font-weight: 600; font-size: 13.5px; }
+.admirer-card button { margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 8px; background: var(--pink-600); color: white; font-size: 12.5px; font-weight: 600; }
+
+/* Profile view */
+.profile-form { background: white; border-radius: clamp(14px, 3vw, 18px); padding: clamp(18px, 5vw, 24px); width: 100%; max-width: min(480px, 100%); }
+.profile-form label { display: block; font-size: 12.5px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+.profile-form input, .profile-form textarea, .profile-form select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; font-size: 14px; box-sizing: border-box; }
+.profile-form textarea { resize: vertical; min-height: 70px; }
+.profile-form button { background: var(--pink-600); color: white; border: none; padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 13.5px; }
+
