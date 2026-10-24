@@ -1,0 +1,163 @@
+/* Profile: profile view, pill chips, My Vibes gallery, prompts */
+/* ---------- Profile view (redesign) ---------- */
+.profile-view { width: 100%; max-width: min(480px, 100%); display: flex; flex-direction: column; gap: clamp(14px, 3vw, 18px); }
+.profile-header-card {
+  background: var(--card); border-radius: clamp(18px, 4vw, 26px);
+  padding: clamp(20px, 5vw, 28px) clamp(16px, 5vw, 24px) clamp(18px, 4vw, 24px);
+  box-shadow: 0 12px 32px rgba(214,56,104,0.08); text-align: center;
+  position: relative; animation: profileFadeIn 0.35s ease;
+}
+@keyframes profileFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.profile-header-topbar { display: flex; justify-content: flex-end; margin-bottom: -4px; }
+.profile-settings-icon-btn {
+  width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--cream);
+  color: var(--muted); display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.profile-settings-icon-btn:hover { background: var(--pink-100); color: var(--pink-600); transform: rotate(20deg); }
+.profile-photo-wrap { position: relative; width: clamp(84px, 22vw, 108px); height: clamp(84px, 22vw, 108px); margin: 0 auto 14px; }
+.profile-photo-wrap .match-avatar {
+  width: 100%; height: 100%; font-size: clamp(26px, 7vw, 34px); border: 3px solid var(--pink-100);
+  box-shadow: 0 8px 24px rgba(214,56,104,0.18);
+}
+.profile-photo-camera-btn {
+  position: absolute; bottom: 0; right: 0; width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-600)); color: white; border: 3px solid white;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(214,56,104,0.35);
+  transition: transform 0.2s ease;
+}
+.profile-photo-camera-btn:hover { transform: scale(1.08); }
+.profile-name-row { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.profile-name-row h2 { margin: 0; font-size: clamp(18px, 4.5vw, 21px); font-weight: 700; color: var(--ink); letter-spacing: -0.2px; }
+.profile-verified-badge {
+  width: 19px; height: 19px; border-radius: 50%; background: linear-gradient(135deg, var(--pink-500), var(--violet));
+  color: white; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.profile-meta-line { font-size: 13.5px; color: var(--muted); font-weight: 500; margin: 4px 0 0; }
+.profile-tagline { font-size: 13.5px; color: var(--ink); opacity: 0.75; margin: 8px 0 0; line-height: 1.5; }
+.profile-strength-block { margin-top: 16px; text-align: left; }
+.profile-strength-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.profile-strength-label { font-size: 12.5px; font-weight: 700; color: var(--ink); }
+.profile-strength-pct { font-size: 12.5px; font-weight: 800; color: var(--pink-600); }
+.profile-strength-track { width: 100%; height: 8px; border-radius: 6px; background: var(--cream); overflow: hidden; }
+.profile-strength-fill { height: 100%; border-radius: 6px; background: linear-gradient(135deg, var(--pink-500), var(--violet)); transition: width 0.4s ease; }
+.profile-strength-hint { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+.profile-edit-btn {
+  width: 100%; margin-top: 16px; padding: 14px; border: none; border-radius: 14px;
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-600)); color: white;
+  font-weight: 700; font-size: 14.5px; box-shadow: 0 8px 20px rgba(214,56,104,0.28);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.profile-edit-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(214,56,104,0.36); }
+.about-card {
+  background: var(--card); border-radius: clamp(16px, 4vw, 22px); padding: clamp(16px, 5vw, 22px) clamp(16px, 5vw, 24px);
+  box-shadow: 0 12px 32px rgba(214,56,104,0.06); animation: profileFadeIn 0.4s ease;
+}
+.about-card-header { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+.about-card-header .icon-circle {
+  width: 30px; height: 30px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.about-card-header h3 { margin: 0; font-size: 15px; font-weight: 700; color: var(--ink); }
+.about-card-text { margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink); opacity: 0.85; white-space: pre-wrap; }
+.about-card-text.empty { opacity: 0.5; font-style: italic; }
+.profile-edit-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.profile-edit-back-btn {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--cream);
+  color: var(--ink); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.profile-edit-header h3 { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); }
+.interests-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.interest-chip {
+  background: var(--pink-100); color: var(--pink-600); font-size: 12.5px; font-weight: 600;
+  padding: 7px 14px; border-radius: 999px; white-space: nowrap; line-height: 1.2;
+}
+.quick-info-card-text.empty, .interests-empty-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 0; }
+
+/* ---------- About Me / I'm looking for — pill chips ---------- */
+.about-pills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.about-pills-grid:first-child { margin-top: 0; }
+.about-pill {
+  display: inline-flex; align-items: center; gap: 9px; background: var(--cream);
+  color: var(--ink); font-size: 14px; font-weight: 600; padding: 11px 18px;
+  border-radius: 999px; line-height: 1.2; white-space: nowrap;
+}
+.about-pill .icon-circle { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--ink); background: none; }
+.about-card-edit-link { font-size: 12.5px; color: var(--pink-600); font-weight: 700; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+.about-card-edit-link:hover { text-decoration: underline; }
+
+/* ---------- Legacy quick-info (kept for any old references) ---------- */
+.quick-info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px 12px; }
+@media (max-width: 480px) { .quick-info-grid { grid-template-columns: repeat(2, 1fr); } }
+.quick-info-item { display: flex; align-items: flex-start; gap: 9px; min-width: 0; }
+.quick-info-item .icon-circle { width: 30px; height: 30px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.quick-info-item .qi-text { display: flex; flex-direction: column; min-width: 0; }
+.quick-info-item .qi-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
+.quick-info-item .qi-value { font-size: 13px; font-weight: 600; color: var(--ink); overflow-wrap: break-word; }
+
+/* ---------- My Vibes gallery ---------- */
+.vibes-counter { font-size: 12px; font-weight: 700; color: var(--muted); }
+.vibes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.vibes-slot {
+  position: relative; aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden;
+  background: var(--cream); border: none; padding: 0;
+}
+.vibes-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0; background: var(--border);
+}
+.vibes-slot img.loaded { opacity: 1; }
+.vibes-slot:hover img, .vibes-slot:active img { transform: scale(1.05); }
+.vibes-slot-empty {
+  border: 2px dashed var(--border); display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 6px; color: var(--muted); cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.vibes-slot-empty:hover { border-color: var(--pink-500); color: var(--pink-600); background: var(--pink-100); }
+.vibes-slot-actions { position: absolute; top: 7px; right: 7px; display: flex; gap: 6px; z-index: 2; }
+.vibes-slot-actions button {
+  width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.94); color: var(--pink-600);
+  border: none; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18); transition: transform 0.15s ease;
+}
+.vibes-slot-actions button:hover, .vibes-slot-actions button:active { transform: scale(0.92); background: white; }
+.vibes-slot-loading {
+  position: absolute; inset: 0; background: rgba(255,255,255,0.8);
+  display: flex; align-items: center; justify-content: center; z-index: 3;
+}
+.vibes-spinner {
+  width: 22px; height: 22px; border: 3px solid var(--pink-100); border-top-color: var(--pink-600);
+  border-radius: 50%; animation: vibesSpin 0.7s linear infinite;
+}
+@keyframes vibesSpin { to { transform: rotate(360deg); } }
+.vibes-status { font-size: 11.5px; color: var(--muted); margin-top: 10px; min-height: 14px; }
+
+/* ---------- Prompts ---------- */
+.prompt-view-card { background: var(--cream); border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; }
+.prompt-view-card:last-child { margin-bottom: 0; }
+.prompt-view-question { font-size: 12px; font-weight: 700; color: var(--pink-600); margin-bottom: 5px; }
+.prompt-view-answer { font-size: 13.5px; line-height: 1.5; color: var(--ink); white-space: pre-wrap; }
+.prompt-edit-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.prompt-edit-row select {
+  padding: 9px 12px; border-radius: 10px; border: 1px solid var(--border); background: white;
+  font-size: 13px; font-family: inherit;
+}
+.prompt-edit-row textarea {
+  padding: 9px 12px; border-radius: 10px; border: 1px solid var(--border); background: white;
+  font-size: 13px; font-family: inherit; min-height: 56px; resize: vertical;
+}
+@media (max-width: 560px) {
+  .vibes-grid {
+    display: flex; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 4px; margin: 0 -2px; -webkit-overflow-scrolling: touch;
+  }
+  .vibes-slot { flex: 0 0 auto; width: clamp(120px, 42vw, 170px); scroll-snap-align: start; }
+}
+.vibes-slot-actions button + button { margin-left: 0; }
+.vibes-grid-view { grid-template-columns: repeat(3, 1fr); }
+.vibes-grid-view .vibes-slot-view { cursor: pointer; }
+.quick-info-card-text { margin: 0; }
+.edit-vibes-section { margin: 4px 0 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.save-note { font-size: 12.5px; color: #4caf7a; margin-left: 10px; }
+

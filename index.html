@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+<title>Swing — Meet someone worth staying for</title>
+<meta name="description" content="Swing is a dating app to meet real people nearby. Sign up free, discover matches, and start chatting." />
+<meta property="og:title" content="Swing — Meet someone worth staying for" />
+<meta property="og:description" content="Sign up free, discover matches, and start chatting on Swing." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/discover.css">
+<link rel="stylesheet" href="/css/profile.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/filters.css">
+<link rel="stylesheet" href="/css/settings.css">
+<link rel="stylesheet" href="/css/theme.css">
+</head>
+<body>
+
+<div id="boot-loader"><div class="boot-wheel"></div></div>
+
+<div id="auth-screen">
+  <svg class="landing-couples" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="couple-icon" viewBox="0 0 100 120">
+        <path d="M16,118 C16,72 24,42 38,42 C52,42 60,72 60,118 Z" fill="currentColor" opacity="0.92"/>
+        <circle cx="38" cy="26" r="16" fill="currentColor" opacity="0.92"/>
+        <path d="M40,118 C40,70 48,38 62,38 C76,38 84,70 84,118 Z" fill="currentColor" opacity="0.72"/>
+        <circle cx="62" cy="22" r="16" fill="currentColor" opacity="0.72"/>
+      </symbol>
+    </defs>
+    <use href="#couple-icon" x="700" y="30" width="260" height="310" style="color:#f4b8ca" opacity="0.55"/>
+    <use href="#couple-icon" x="30" y="640" width="190" height="230" style="color:#e8926b" opacity="0.5"/>
+    <use href="#couple-icon" x="230" y="700" width="170" height="200" style="color:#7c3aed" opacity="0.45"/>
+    <use href="#couple-icon" x="770" y="400" width="210" height="250" style="color:#e0b48a" opacity="0.5"/>
+    <use href="#couple-icon" x="790" y="680" width="190" height="230" style="color:#8b5cf6" opacity="0.45"/>
+    <use href="#couple-icon" x="450" y="740" width="180" height="210" style="color:#f0b79a" opacity="0.4"/>
+  </svg>
+
+  <svg class="landing-map" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-dasharray="1 4">
+      <path d="M50,150 Q200,80 350,140 T650,120"/>
+      <path d="M100,200 Q300,220 500,160 T750,180"/>
+    </g>
+    <g fill="#8b5cf6">
+      <circle cx="50" cy="150" r="3"/>
+      <circle cx="350" cy="140" r="3"/>
+      <circle cx="650" cy="120" r="3"/>
+      <circle cx="100" cy="200" r="3"/>
+      <circle cx="500" cy="160" r="3"/>
+      <circle cx="750" cy="180" r="3"/>
+    </g>
+  </svg>
+
+  <div class="landing-body">
+    <div class="landing-left">
+      <div class="landing-brand"><span class="logo-font">Swing</span> <span class="brand-heart"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 8 1.7 4.6 5 3.6c2.2-.6 4.3.3 5.6 2.1l1.4 1.9 1.4-1.9C14.7 3.9 16.8 3 19 3.6c3.3 1 4.6 4.4 3 7.6-2.5 4.7-10 9.3-10 9.3Z"/></svg></span></div>
+      <div class="landing-kicker">MEET • MATCH • CONNECT</div>
+      <h1 class="landing-headline">Meet someone worth <span>staying for.</span></h1>
+      <p class="landing-sub">Swing helps you find real connections with people who get you.</p>
+      <div class="landing-features">
+        <div class="landing-feature"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 8 1.7 4.6 5 3.6c2.2-.6 4.3.3 5.6 2.1l1.4 1.9 1.4-1.9C14.7 3.9 16.8 3 19 3.6c3.3 1 4.6 4.4 3 7.6-2.5 4.7-10 9.3-10 9.3Z"/></svg></div><div class="label">Meaningful Matches</div></div>
+        <div class="landing-feature"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5.5c0 4.6-3 7.8-7 9.5-4-1.7-7-4.9-7-9.5V6l7-3Z"/></svg></div><div class="label">Safe &amp; Private</div></div>
+        <div class="landing-feature"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg></div><div class="label">Built for real connections</div></div>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <span class="logo-font">swing</span>
+      <div class="auth-sub">Meet someone worth staying for.</div>
+      <div class="auth-tabs">
+        <button id="tab-login" class="active" onclick="setAuthMode('login')">Log in</button>
+        <button id="tab-register" onclick="setAuthMode('register')">Sign up</button>
+      </div>
+      <div id="auth-error" class="auth-error" style="display:none;"></div>
+      <form id="auth-form">
+        <input id="f-name" name="name" placeholder="Name" style="display:none;" />
+        <input id="f-age" name="age" type="number" placeholder="Age" min="18" style="display:none;" />
+        <select id="f-gender" name="gender" style="display:none;">
+          <option value="">I am a...</option>
+          <option value="man">Man</option>
+          <option value="woman">Woman</option>
+          <option value="non-binary">Non-binary</option>
+          <option value="genderqueer">Genderqueer</option>
+          <option value="genderfluid">Genderfluid</option>
+          <option value="agender">Agender</option>
+          <option value="other">Other</option>
+          <option value="prefer_not_to_say">Prefer not to say</option>
+        </select>
+        <input id="f-country" name="country" placeholder="Country (e.g. Philippines)" style="display:none;" />
+        <input id="f-location" name="location" placeholder="Location (e.g. Manila, Philippines)" style="display:none;" />
+        <textarea id="f-bio" name="bio" placeholder="Short bio" style="display:none;"></textarea>
+        <div id="f-tags-picker" style="display:none;margin-bottom:12px;">
+          <div class="filter-field-label" style="margin-bottom:6px;">Interests <span style="font-weight:400;color:var(--muted);">(up to 2 per category)</span></div>
+          <div id="f-tags-chips"></div>
+        </div>
+        <input id="f-identity" name="identity" type="text" inputmode="email" autocomplete="username" placeholder="Email or phone number" required />
+        <div class="password-field-wrap">
+          <input id="f-password" name="password" type="password" placeholder="Password" autocomplete="current-password" required />
+          <button type="button" class="password-toggle-btn" id="password-toggle-btn" onclick="togglePasswordVisibility()" aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="field-hint" id="password-hint" style="display:none;">At least 6 characters, with letters and numbers.</div>
+        <div class="auth-forgot-link" id="auth-forgot-link"><button type="button" onclick="openForgotPassword()">Forgot password?</button></div>
+        <button type="submit" class="auth-submit" id="auth-submit-btn">Log in</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="filter-overlay" id="forgot-password-overlay" onclick="closeForgotPassword()"></div>
+  <div class="filter-panel" id="forgot-password-panel" role="dialog" aria-modal="true" aria-labelledby="forgot-password-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="forgot-password-title">Reset password</h2>
+      <button class="filter-panel-close" onclick="closeForgotPassword()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body">
+      <div id="forgot-step-request">
+        <div class="field-hint" style="margin:0 0 14px 2px;">Enter the email or phone number on your account and we'll send a reset code.</div>
+        <input id="fp-identity" type="text" placeholder="Email or phone number" />
+        <div id="forgot-request-error" class="auth-error" style="display:none;"></div>
+      </div>
+      <div id="forgot-step-reset" style="display:none;">
+        <div class="field-hint" id="forgot-reset-hint" style="margin:0 0 14px 2px;">Enter the code and choose a new password.</div>
+        <input id="fp-code" type="text" inputmode="numeric" maxlength="6" placeholder="6-digit code" />
+        <div class="password-field-wrap">
+          <input id="fp-new-password" type="password" placeholder="New password" autocomplete="new-password" />
+          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('fp-new-password', this)" aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="field-hint">At least 6 characters, with letters and numbers.</div>
+        <div id="forgot-reset-error" class="auth-error" style="display:none;"></div>
+      </div>
+    </div>
+    <div class="filter-panel-footer">
+      <button type="button" class="filter-apply-btn" id="forgot-step-btn" onclick="submitForgotPasswordStep()">Send reset code</button>
+    </div>
+  </div>
+
+  <div class="landing-footer">
+    <div>
+      <div class="globe-line"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg> Connect around <b>the world.</b></div>
+      <div class="sub-line">No matter where you are, real connections are everywhere.</div>
+    </div>
+    <div class="join-badge"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg> New here? Be one of the first to join.</div>
+  </div>
+
+</div>
+
+<div id="questionnaire-screen">
+  <div class="q-card">
+    <div class="q-header">
+      <div class="logo-font">swing</div>
+      <div class="q-kicker"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg> COMPATIBILITY QUESTIONNAIRE</div>
+    </div>
+    <div id="questionnaire-body"></div>
+    <div class="q-actions">
+      <button id="q-back-btn" onclick="goBackQuestion()">Back</button>
+      <button id="q-next-btn" onclick="goNextQuestion()">Next</button>
+    </div>
+    <button class="q-skip" onclick="skipQuestionnaire()">Skip for now</button>
+  </div>
+</div>
+
+<div id="details-screen">
+  <div class="q-card" style="max-width:540px;">
+    <button type="button" class="profile-overlay-close" onclick="closeDetailsScreen()" aria-label="Close About Me">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="q-header">
+      <div class="logo-font">swing</div>
+      <div class="q-kicker"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg> COMPLETE YOUR PROFILE</div>
+    </div>
+    <h3 class="q-title">A few more details</h3>
+    <div class="q-hint">Optional — but profiles with more details get better matches</div>
+    <div class="q-progress-bar"><div class="q-progress-fill" id="details-progress-fill" style="width:0%;"></div></div>
+
+    <div class="details-body" id="details-form-body">
+
+      <div class="filter-section">
+        <p class="filter-section-title">LANGUAGES</p>
+        <div class="filter-field">
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="languages" data-value="English">English</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Tagalog">Tagalog</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Spanish">Spanish</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Mandarin">Mandarin</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Japanese">Japanese</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Korean">Korean</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="French">French</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">PROFILE</p>
+        <div class="filter-field">
+          <label class="filter-field-label" for="d-education">Education</label>
+          <select class="filter-select" id="d-education">
+            <option value="">Prefer not to say</option>
+            <option value="high_school">High school</option>
+            <option value="undergrad">Undergrad</option>
+            <option value="postgrad">Postgrad</option>
+            <option value="phd">PhD</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <div class="filter-field-label">Height <span class="val" id="d-height-val">170 cm</span></div>
+          <div class="single-range"><input type="range" id="d-height" min="140" max="210" value="170" oninput="onDetailsHeightInput()" /></div>
+        </div>
+        <div class="filter-field">
+          <div class="filter-field-label">Exercise</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="exercise" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="exercise" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="exercise" data-value="often">Often</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">LIFESTYLE</p>
+        <div class="filter-field">
+          <div class="filter-field-label">Drinking</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="drinking" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="drinking" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="drinking" data-value="often">Often</button>
+          </div>
+        </div>
+        <div class="filter-field">
+          <div class="filter-field-label">Smoking</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="smoking" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="smoking" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="smoking" data-value="often">Often</button>
+          </div>
+        </div>
+        <div class="filter-field">
+          <label class="filter-field-label" for="d-religion">Religion</label>
+          <select class="filter-select" id="d-religion">
+            <option value="">Prefer not to say</option>
+            <option value="christian">Christian</option>
+            <option value="muslim">Muslim</option>
+            <option value="hindu">Hindu</option>
+            <option value="buddhist">Buddhist</option>
+            <option value="jewish">Jewish</option>
+            <option value="spiritual">Spiritual</option>
+            <option value="agnostic">Agnostic</option>
+            <option value="atheist">Atheist</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label class="filter-field-label" for="d-political">Political views</label>
+          <select class="filter-select" id="d-political">
+            <option value="">Prefer not to say</option>
+            <option value="liberal">Liberal</option>
+            <option value="moderate">Moderate</option>
+            <option value="conservative">Conservative</option>
+            <option value="not_political">Not political</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">FAMILY</p>
+        <div class="filter-field">
+          <div class="filter-field-label">Children</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="children" data-value="has">Has children</button>
+            <button type="button" class="filter-chip" data-group="children" data-value="none">Doesn't have children</button>
+            <button type="button" class="filter-chip" data-group="children" data-value="unspecified">Prefer not to say</button>
+          </div>
+        </div>
+        <div class="filter-field">
+          <div class="filter-field-label">Wants children</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="yes">Yes</button>
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="no">No</button>
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="maybe">Maybe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">DATING</p>
+        <div class="filter-field">
+          <div class="filter-field-label">Dating intentions</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="casual">Casual</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="relationship">Relationship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="marriage">Marriage</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="friendship">Friendship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="not_sure">Not sure</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button id="details-save-btn" onclick="saveDetailsScreen()">Save & continue</button>
+    <button class="q-skip" onclick="skipDetailsScreen()">Skip for now</button>
+  </div>
+</div>
+
+<div id="looking-for-screen">
+  <div class="q-card" style="max-width:540px;">
+    <button type="button" class="profile-overlay-close" onclick="closeLookingForScreen()" aria-label="Close I'm looking for">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="q-header">
+      <div class="logo-font">swing</div>
+      <div class="q-kicker"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> I'M LOOKING FOR</div>
+    </div>
+    <h3 class="q-title">What are you looking for?</h3>
+    <div class="q-hint">Choose as many as apply</div>
+
+    <div class="details-body" id="looking-for-form-body">
+      <div class="filter-section">
+        <p class="filter-section-title">DATING</p>
+        <div class="filter-field">
+          <div class="filter-field-label">Dating intentions</div>
+          <div class="filter-chips">
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="casual">Casual</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="relationship">Relationship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="marriage">Marriage</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="friendship">Friendship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="not_sure">Not sure</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="looking-for-save-btn" onclick="saveLookingForScreen()">Save</button>
+    <button class="q-skip" onclick="closeLookingForScreen()">Cancel</button>
+  </div>
+</div>
+
+<div id="dashboard">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo-font">swing <span class="brand-heart"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 8 1.7 4.6 5 3.6c2.2-.6 4.3.3 5.6 2.1l1.4 1.9 1.4-1.9C14.7 3.9 16.8 3 19 3.6c3.3 1 4.6 4.4 3 7.6-2.5 4.7-10 9.3-10 9.3Z"/></svg></span></div></div>
+    <div class="tagline">Meet someone worth<br/>staying for.</div>
+
+    <button class="nav-item active" data-view="discover" onclick="switchView('discover')"><span class="icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/></svg></span> Discover</button>
+    <button class="nav-item" data-view="matches" onclick="switchView('matches')"><span class="icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.4 8.4 0 0 1 12.5 3h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></span> Matches <span class="badge" id="nav-matches-count" style="display:none;">0</span></button>
+    <button class="nav-item" data-view="likes" onclick="switchView('likes')"><span class="icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5 15 9l7 .9-5.1 4.8L18.2 21 12 17.4 5.8 21l1.3-6.3L2 9.9 9 9z"/></svg></span> Likes You <span class="badge" id="nav-likes-count">0</span></button>
+    <button class="nav-item" data-view="explore" onclick="switchView('explore')"><span class="icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/></svg></span> Explore</button>
+    <button class="nav-item" data-view="profile" onclick="switchView('profile')" aria-label="Profile"><span class="icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span> Profile</button>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="premium-card">
+      <div class="title"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M3 8.5 7 11l5-7 5 7 4-2.5-1.6 10.5H4.6L3 8.5Z"/></svg> Go Premium</div>
+      <div class="desc">Unlock all features</div>
+    </div>
+    <div class="me-row">
+      <div class="me-avatar" id="me-avatar">?</div>
+      <div>
+        <div class="name" id="me-name">—</div>
+        <button class="link" onclick="switchView('profile')">View my profile</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 id="view-title">Discover</h1>
+      <div class="top-actions">
+        <button class="icon-btn filter-btn" id="filter-trigger-btn" onclick="openFilterPanel()" aria-label="Filters" title="Filters" aria-haspopup="dialog" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2.1" fill="white" stroke="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2.1" fill="white" stroke="currentColor"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="11" cy="18" r="2.1" fill="white" stroke="currentColor"/></svg>
+          <span class="dot" id="filter-badge" style="display:none;">0</span>
+        </button>
+        <button class="icon-btn" id="profile-settings-btn" onclick="openProfileSettings()" aria-label="Settings" title="Settings" style="display:none;">
+          <span aria-hidden="true">⚙️</span>
+        </button>
+        <div class="top-avatar" id="top-avatar">?</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="discover-col">
+
+        <div class="view-panel visible" id="panel-discover">
+          <div class="filter-tabs discover-category-tabs" role="tablist" aria-label="Discover categories">
+            <button class="active" type="button" role="tab" aria-selected="true" onclick="setDiscoverTab('maylike')" aria-label="Profiles You May Like" title="Profiles You May Like"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg></button>
+            <button type="button" role="tab" aria-selected="false" onclick="setDiscoverTab('liked')" aria-label="Profiles You Liked" title="Profiles You Liked"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            <button type="button" role="tab" aria-selected="false" onclick="setDiscoverTab('nearby')" aria-label="Users Nearby" title="Users Nearby"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s7-6.5 7-11.5A7 7 0 1 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.2"/></svg></button>
+            <button type="button" role="tab" aria-selected="false" onclick="setDiscoverTab('new')" aria-label="New Users" title="New Users"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></button>
+          </div>
+          <div class="discover-section-title" id="discover-tab-heading">Profiles You May Like <span id="discover-tab-count">0</span></div>
+          <div class="discover-stack-wrap">
+            <div class="discover-stack-nav-wrap">
+              <div id="discover-list" class="discover-stack"></div>
+              <button type="button" class="discover-nav-btn discover-nav-prev" id="discover-nav-prev" onclick="scrollDiscoverCarousel(-1)" aria-label="Previous profile" title="Previous profile" style="display:none;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button type="button" class="discover-nav-btn discover-nav-next" id="discover-nav-next" onclick="scrollDiscoverCarousel(1)" aria-label="Next profile" title="Next profile" style="display:none;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="swipe-hint" id="discover-explore-hint" style="display:none;">Tap a profile to explore more</div>
+            <div class="swipe-actions" id="discover-stack-actions" style="display:none;">
+              <button type="button" class="act-pass" onclick="swipeCurrentCard('pass')" aria-label="Pass" title="Pass"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+              <button type="button" class="act-like" onclick="swipeCurrentCard('like')" aria-label="Like" title="Like"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 8 1.7 4.6 5 3.6c2.2-.6 4.3.3 5.6 2.1l1.4 1.9 1.4-1.9C14.7 3.9 16.8 3 19 3.6c3.3 1 4.6 4.4 3 7.6-2.5 4.7-10 9.3-10 9.3Z"/></svg></button>
+            </div>
+            <div class="swipe-hint" id="discover-stack-hint" style="display:none;">Scroll sideways to browse, or use the buttons below</div>
+          </div>
+        </div>
+
+        <div class="candidate-modal-overlay" id="candidate-detail-modal">
+          <div class="candidate-modal">
+            <button type="button" class="candidate-modal-menu-btn" onclick="openProfileActionSheet()" aria-label="More options" title="More options"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
+            <button type="button" class="candidate-modal-close" onclick="closeCandidateDetail()" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+            <div id="candidate-detail-body"></div>
+            <div class="swipe-actions" id="candidate-detail-footer"></div>
+          </div>
+        </div>
+
+        <div class="photo-lightbox-overlay" id="photo-lightbox" onclick="if (event.target === this) closePhotoLightbox()">
+          <button type="button" class="photo-lightbox-close" onclick="closePhotoLightbox()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          <button type="button" class="photo-lightbox-nav photo-lightbox-prev" id="photo-lightbox-prev" onclick="navPhotoLightbox(-1)" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <img id="photo-lightbox-img" src="" alt="Full-size photo" />
+          <button type="button" class="photo-lightbox-nav photo-lightbox-next" id="photo-lightbox-next" onclick="navPhotoLightbox(1)" aria-label="Next photo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+          <div class="photo-lightbox-counter" id="photo-lightbox-counter"></div>
+        </div>
+
+        <div class="action-sheet-overlay" id="action-sheet-overlay" onclick="if (event.target === this) closeActionSheet()">
+          <div class="action-sheet" id="action-sheet-body"></div>
+        </div>
+
+        <!-- Profile photo crop step: every profile photo is cropped to a
+             3:4 portrait before it's uploaded, so every profile photo in
+             the app ends up the same shape. -->
+        <div class="photo-crop-overlay" id="photo-crop-overlay">
+          <div class="photo-crop-modal">
+            <div class="photo-crop-header">Crop your photo</div>
+            <div class="photo-crop-stage" id="photo-crop-stage"><img id="photo-crop-img" src="" alt="" /></div>
+            <div class="photo-crop-hint">Drag to reposition, pinch or scroll to zoom</div>
+            <div class="photo-crop-actions">
+              <button type="button" class="photo-crop-cancel" onclick="cancelPhotoCrop()">Cancel</button>
+              <button type="button" class="photo-crop-confirm" id="photo-crop-confirm-btn" onclick="confirmPhotoCrop()">Use photo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="view-panel" id="panel-matches">
+          <div id="matches-full-list"></div>
+        </div>
+
+        <div class="view-panel" id="panel-chat">
+          <div class="chat-panel">
+            <div class="chat-header">
+              <button class="back-btn" onclick="switchView('matches')" aria-label="Back to matches"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <div class="msg-avatar" id="chat-avatar" style="width:36px;height:36px;font-size:12px;"></div>
+              <div style="font-weight:600;" id="chat-name"></div>
+            </div>
+            <div id="chat-compat-panel"></div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-row">
+              <input id="chat-input" placeholder="Type a message..." />
+              <button onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="view-panel" id="panel-likes">
+          <div class="admirer-grid" id="admirer-grid"></div>
+        </div>
+
+        <div class="view-panel" id="panel-explore">
+          <div class="explore-panel">
+            <div class="explore-header">
+              <div class="explore-title">Explore</div>
+              <div class="explore-sub muted-note">Browse everyone currently available to you at a glance — tap anyone to see their full profile.</div>
+            </div>
+            <div class="explore-grid" id="explore-grid"></div>
+          </div>
+        </div>
+
+        <div class="view-panel" id="panel-profile">
+
+          <!-- ===== View mode ===== -->
+          <div class="profile-view" id="profile-view-mode">
+            <div class="profile-header-card">
+              <div class="profile-photo-wrap">
+                <div class="match-avatar" id="ph-photo-preview"></div>
+                <button type="button" class="profile-photo-camera-btn" onclick="document.getElementById('p-photo-input').click()" aria-label="Change photo" title="Change photo">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.4"/></svg>
+                </button>
+                <input type="file" id="p-photo-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none;" onchange="handlePhotoSelect(event)" />
+              </div>
+              <div id="photo-upload-status" style="font-size:11.5px;color:var(--muted);margin-top:2px;"></div>
+
+              <div class="profile-name-row">
+                <h2 id="ph-name">—</h2>
+                <span class="profile-verified-badge" id="ph-verified-badge" style="display:none;" title="Verified">
+                  <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
+              </div>
+              <div class="profile-meta-line" id="ph-meta">&nbsp;</div>
+              <p class="profile-tagline" id="ph-tagline"></p>
+
+              <div class="profile-strength-block" id="ph-strength-block">
+                <div class="profile-strength-row">
+                  <span class="profile-strength-label">Profile Strength</span>
+                  <span class="profile-strength-pct" id="ph-strength-pct">0%</span>
+                </div>
+                <div class="profile-strength-track"><div class="profile-strength-fill" id="ph-strength-fill" style="width:0%;"></div></div>
+                <div class="profile-strength-hint" id="ph-strength-hint"></div>
+              </div>
+
+              <button type="button" class="profile-edit-btn" onclick="enterProfileEditMode()">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                Edit Profile
+              </button>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-header" style="justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <span class="icon-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.4"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></svg></span>
+                  <h3>About Me</h3>
+                </div>
+                <button type="button" class="about-card-edit-link" onclick="showDetailsScreen('profile')">Edit</button>
+              </div>
+              <p class="about-card-text" id="ph-bio-text">—</p>
+              <div class="about-pills-grid" id="ph-about-pills"></div>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-header" style="justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <span class="icon-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg></span>
+                  <h3>Interests</h3>
+                </div>
+                <button type="button" class="about-card-edit-link" onclick="openInterestsPanel()">Edit</button>
+              </div>
+              <div class="interests-chips" id="ph-interests-chips"></div>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-header" style="justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <span class="icon-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+                  <h3>I'm looking for</h3>
+                </div>
+                <button type="button" class="about-card-edit-link" onclick="showLookingForScreen()">Edit</button>
+              </div>
+              <div class="about-pills-grid" id="ph-lookingfor-pills"></div>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-header" style="justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <span class="icon-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 15.5 15.5 11 6 19"/></svg></span>
+                  <h3>My Vibes</h3>
+                </div>
+                <span class="vibes-counter" id="ph-vibes-counter">0/3 photos</span>
+              </div>
+              <div class="vibes-grid vibes-grid-view" id="ph-vibes-grid"></div>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-header">
+                <span class="icon-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                <h3>Prompts</h3>
+              </div>
+              <div id="ph-prompts-list"></div>
+            </div>
+
+            <div class="about-card">
+              <button type="button" onclick="showQuestionnaire('profile')" style="background:var(--cream);color:var(--ink);border:1px solid var(--border);width:100%;padding:11px;border-radius:10px;font-weight:600;font-size:13.5px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2c.6 3.6 1.4 5.9 2.6 7.4 1.5 1.2 3.8 2 7.4 2.6-3.6.6-5.9 1.4-7.4 2.6-1.2 1.5-2 3.8-2.6 7.4-.6-3.6-1.4-5.9-2.6-7.4C7.9 13.4 5.6 12.6 2 12c3.6-.6 5.9-1.4 7.4-2.6C10.6 7.9 11.4 5.6 12 2Z"/></svg> Compatibility Quiz</button>
+            </div>
+          </div>
+
+          <!-- ===== Edit mode ===== -->
+          <div class="profile-form" id="profile-edit-mode" style="display:none;">
+            <div class="profile-edit-header">
+              <button type="button" class="profile-edit-back-btn" onclick="exitProfileEditMode()" aria-label="Back" title="Back">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+              </button>
+              <h3>Edit Profile</h3>
+            </div>
+            <label>Name</label><input id="p-name" />
+            <label>Age</label><input id="p-age" type="number" min="18" />
+            <label>Gender</label>
+            <select id="p-gender">
+              <option value="man">Man</option>
+              <option value="woman">Woman</option>
+              <option value="non-binary">Non-binary</option>
+              <option value="genderqueer">Genderqueer</option>
+              <option value="genderfluid">Genderfluid</option>
+              <option value="agender">Agender</option>
+              <option value="other">Other</option>
+              <option value="prefer_not_to_say">Prefer not to say</option>
+            </select>
+            <label>Country</label><input id="p-country" />
+            <label>Location</label><input id="p-location" />
+            <label>Bio</label><textarea id="p-bio"></textarea>
+            <div class="field-hint" style="margin:-8px 0 14px 2px;">Interests are edited from the Interests card on your profile — tap "Edit" there.</div>
+
+            <div class="edit-vibes-section">
+              <div class="about-card-header" style="justify-content:space-between;margin-bottom:10px;">
+                <span style="font-size:12.5px;font-weight:600;color:var(--muted);">My Vibes</span>
+                <span class="vibes-counter" id="vibes-counter">0/3 photos</span>
+              </div>
+              <div class="vibes-grid" id="vibes-grid"></div>
+              <div class="vibes-status" id="vibes-status"></div>
+              <input type="file" id="vibes-photo-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none;" onchange="handleVibesPhotoSelect(event)" />
+            </div>
+
+            <div class="edit-prompts-section">
+              <div class="about-card-header" style="justify-content:space-between;margin-bottom:10px;">
+                <span style="font-size:12.5px;font-weight:600;color:var(--muted);">Prompts</span>
+                <span class="vibes-counter" id="prompts-counter">0/3 answered</span>
+              </div>
+              <div id="prompts-edit-rows"></div>
+              <button type="button" onclick="savePrompts()" style="background:var(--cream);color:var(--ink);border:1px solid var(--border);width:100%;padding:10px;border-radius:10px;font-weight:600;font-size:13px;margin-top:4px;">Save prompts</button>
+              <div class="vibes-status" id="prompts-status"></div>
+            </div>
+
+            <button onclick="saveProfile()">Save changes</button>
+            <span class="save-note" id="save-note" style="display:none;">Saved!</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="side-col">
+        <div class="side-card">
+          <div class="side-head"><h3>Matches</h3><button type="button" class="text-link" onclick="switchView('matches')">See all</button></div>
+          <div class="match-avatars" id="matches-list"></div>
+        </div>
+        <div class="side-card">
+          <div class="side-head"><h3>Messages</h3><button type="button" class="text-link" onclick="switchView('matches')">See all</button></div>
+          <div id="messages-list"></div>
+        </div>
+        <div class="promo-card">
+          <h4>Get more with Swing Premium</h4>
+          <p>Unlimited likes, see who likes you, boost profile & more!</p>
+          <button type="button" onclick="alert('Swing Premium is launching soon — thanks for your interest!')"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M3 8.5 7 11l5-7 5 7 4-2.5-1.6 10.5H4.6L3 8.5Z"/></svg> Upgrade Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-footer">
+      <div>© 2026 Swing</div>
+      <div class="links"><a href="#">About</a><a href="#">Safety</a><a href="#">Help</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Primary">
+    <button class="mobile-nav-item active" data-view="discover" onclick="switchView('discover')" aria-label="Discover" aria-current="page">
+      <span class="icon">
+        <svg class="icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/></svg>
+        <svg class="icon-filled" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3.2 3 11.2v1.3h2.2V20a1 1 0 0 0 1 1H10v-6.2h4V21h3.8a1 1 0 0 0 1-1v-7.5H21v-1.3z"/></svg>
+      </span>
+      <span class="nav-dot"></span>
+    </button>
+    <button class="mobile-nav-item" data-view="matches" onclick="switchView('matches')" aria-label="Messages">
+      <span class="icon">
+        <svg class="icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.4 8.4 0 0 1 12.5 3h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+        <svg class="icon-filled" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.5 2.5h-.5A9 9 0 0 0 3 11.5a8.9 8.9 0 0 0 .9 4L2 21.5l6.2-1.8a8.9 8.9 0 0 0 3.8.9 9 9 0 0 0 9-9v-.5a9 9 0 0 0-8.5-8.6z"/></svg>
+      </span>
+      <span class="nav-dot"></span>
+      <span class="mnav-badge" id="mnav-messages-count" style="display:none;"></span>
+    </button>
+    <button class="mobile-nav-item mobile-nav-fab" data-view="explore" onclick="switchView('explore')" aria-label="Explore">
+      <span class="icon">
+        <svg class="icon-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3.8 5.7-2.1 5.6a1 1 0 0 1-.6.6l-5.6 2.1a.5.5 0 0 1-.6-.6l2.1-5.6a1 1 0 0 1 .6-.6l5.6-2.1a.5.5 0 0 1 .6.6Z"/></svg>
+      </span>
+    </button>
+    <button class="mobile-nav-item" data-view="likes" onclick="switchView('likes')" aria-label="Likes you">
+      <span class="icon">
+        <svg class="icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5 15 9l7 .9-5.1 4.8L18.2 21 12 17.4 5.8 21l1.3-6.3L2 9.9 9 9z"/></svg>
+        <svg class="icon-filled" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.5 15 9l7 .9-5.1 4.8L18.2 21 12 17.4 5.8 21l1.3-6.3L2 9.9 9 9z"/></svg>
+      </span>
+      <span class="nav-dot"></span>
+      <span class="mnav-badge" id="mnav-likes-count" style="display:none;"></span>
+    </button>
+    <button class="mobile-nav-item" data-view="profile" onclick="switchView('profile')" aria-label="Profile">
+      <span class="icon">
+        <svg class="icon-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg>
+        <svg class="icon-filled" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="12" cy="7.8" r="4"/><path d="M3.8 20.6c.7-4.4 4-7.1 8.2-7.1s7.5 2.7 8.2 7.1a1 1 0 0 1-1 1.2H4.8a1 1 0 0 1-1-1.2z"/></svg>
+      </span>
+      <span class="nav-dot"></span>
+    </button>
+  </nav>
+
+  <div class="filter-overlay" id="filter-overlay" onclick="closeFilterPanel()"></div>
+  <div class="settings-overlay" id="settings-overlay" onclick="closeProfileSettings()"></div>
+  <aside class="settings-panel" id="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-panel-title" aria-hidden="true">
+    <div class="settings-header">
+      <h2 id="settings-panel-title">Settings</h2>
+      <button class="settings-close" onclick="closeProfileSettings()" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="settings-body">
+      <div class="settings-section">
+        <p class="settings-section-title">ACCOUNT</p>
+        <div class="settings-card">
+          <button class="settings-row clickable" type="button" onclick="closeProfileSettings(); enterProfileEditMode();">
+            <span class="settings-icon">✎</span><span class="settings-copy"><span class="settings-label">Edit profile</span><span class="settings-desc">Update your bio, interests, lifestyle and dating intentions.</span></span><span class="settings-chevron">›</span>
+          </button>
+          <div class="settings-row">
+            <span class="settings-icon">@</span><span class="settings-copy"><span class="settings-label">Email</span><span class="settings-desc">Your sign-in email</span></span><span class="settings-value" id="settings-email">—</span>
+          </div>
+          <div class="settings-row">
+            <span class="settings-icon">☎</span><span class="settings-copy"><span class="settings-label">Phone</span><span class="settings-desc">Your sign-in phone number</span></span><span class="settings-value" id="settings-phone">—</span>
+          </div>
+          <button class="settings-row clickable" type="button" onclick="openChangePassword()">
+            <span class="settings-icon">🔒</span><span class="settings-copy"><span class="settings-label">Change password</span><span class="settings-desc">Update the password you sign in with.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">DISCOVERY</p>
+        <div class="settings-card">
+          <button class="settings-row clickable" type="button" onclick="closeProfileSettings(); openFilterPanel();">
+            <span class="settings-icon">⌘</span><span class="settings-copy"><span class="settings-label">Discovery filters</span><span class="settings-desc">Control who appears in Discover and Explore.</span></span><span class="settings-chevron">›</span>
+          </button>
+          <button class="settings-row clickable" type="button" onclick="resetFiltersFromSettings()">
+            <span class="settings-icon">↺</span><span class="settings-copy"><span class="settings-label">Reset filters</span><span class="settings-desc">Return Discover preferences to their defaults.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">DATING PREFERENCES</p>
+        <div class="settings-card">
+          <button class="settings-row clickable" type="button" onclick="openOrientationPanel()">
+            <span class="settings-icon">◐</span><span class="settings-copy"><span class="settings-label">Sexual Orientation</span><span class="settings-desc">Private — used for matching only, never shown on your profile.</span></span><span class="settings-chevron">›</span>
+          </button>
+          <button class="settings-row clickable" type="button" onclick="openInterestedInPanel()">
+            <span class="settings-icon">⚭</span><span class="settings-copy"><span class="settings-label">Interested In</span><span class="settings-desc">Private — controls who's eligible to see you and who you see in Discover.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">PRIVACY</p>
+        <div class="settings-card">
+          <button class="settings-row clickable" type="button" onclick="togglePrivacySetting('discoverable')">
+            <span class="settings-icon">◎</span><span class="settings-copy"><span class="settings-label">Show me in Discover</span><span class="settings-desc">Turn your profile on or off in other people's Discover feed.</span></span><span class="settings-toggle" id="settings-discoverable-toggle" aria-hidden="true"></span>
+          </button>
+          <button class="settings-row clickable" type="button" onclick="togglePrivacySetting('showLocation')">
+            <span class="settings-icon">⌖</span><span class="settings-copy"><span class="settings-label">Show my location</span><span class="settings-desc">Allow your saved city/location to appear on your profile.</span></span><span class="settings-toggle" id="settings-location-toggle" aria-hidden="true"></span>
+          </button>
+          <button class="settings-row clickable" type="button" onclick="openBlockedUsersPanel()">
+            <span class="settings-icon">🚫</span><span class="settings-copy"><span class="settings-label">Blocked Users</span><span class="settings-desc">See and manage people you've blocked.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">APPEARANCE</p>
+        <div class="settings-card">
+          <div class="settings-row">
+            <span class="settings-icon">◐</span><span class="settings-copy"><span class="settings-label">Theme</span><span class="settings-desc">Choose how Swing looks on this device.</span></span>
+          </div>
+          <div class="settings-choice-row">
+            <button type="button" class="settings-choice" data-theme-choice="system" onclick="setSwingTheme('system')">System</button>
+            <button type="button" class="settings-choice" data-theme-choice="light" onclick="setSwingTheme('light')">Light</button>
+            <button type="button" class="settings-choice" data-theme-choice="dark" onclick="setSwingTheme('dark')">Dark</button>
+          </div>
+          <button class="settings-row clickable" type="button" onclick="toggleReducedMotion()">
+            <span class="settings-icon">≈</span><span class="settings-copy"><span class="settings-label">Reduce motion</span><span class="settings-desc">Minimize animations and transitions.</span></span><span class="settings-toggle" id="settings-motion-toggle" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">SESSION</p>
+        <div class="settings-card">
+          <button class="settings-row clickable settings-danger" type="button" onclick="logoutFromSettings()">
+            <span class="settings-icon">⇥</span><span class="settings-copy"><span class="settings-label">Log out</span><span class="settings-desc">Sign out of Swing on this device.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-section-title">DANGER ZONE</p>
+        <div class="settings-card">
+          <button class="settings-row clickable settings-danger" type="button" onclick="openDeleteAccount()">
+            <span class="settings-icon">⚠</span><span class="settings-copy"><span class="settings-label">Delete account</span><span class="settings-desc">Permanently delete your account, matches, and messages. This can't be undone.</span></span><span class="settings-chevron">›</span>
+          </button>
+        </div>
+      </div>
+      <p class="settings-note">Settings marked for this device are stored locally in your browser. Account and profile data remain managed by your Swing account.</p>
+    </div>
+  </aside>
+
+  <div class="filter-overlay" id="change-password-overlay" onclick="closeChangePassword()"></div>
+  <div class="filter-panel" id="change-password-panel" role="dialog" aria-modal="true" aria-labelledby="change-password-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="change-password-title">Change password</h2>
+      <button class="filter-panel-close" onclick="closeChangePassword()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body">
+      <div class="password-field-wrap">
+        <input id="cp-current-password" type="password" placeholder="Current password" autocomplete="current-password" />
+        <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('cp-current-password', this)" aria-label="Show password" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="password-field-wrap">
+        <input id="cp-new-password" type="password" placeholder="New password" autocomplete="new-password" />
+        <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('cp-new-password', this)" aria-label="Show password" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="field-hint">At least 6 characters, with letters and numbers.</div>
+      <div id="change-password-error" class="auth-error" style="display:none;"></div>
+    </div>
+    <div class="filter-panel-footer">
+      <button type="button" class="filter-apply-btn" id="change-password-btn" onclick="submitChangePassword()">Update password</button>
+    </div>
+  </div>
+
+  <div class="filter-overlay" id="delete-account-overlay" onclick="closeDeleteAccount()"></div>
+  <div class="filter-panel" id="delete-account-panel" role="dialog" aria-modal="true" aria-labelledby="delete-account-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="delete-account-title">Delete account</h2>
+      <button class="filter-panel-close" onclick="closeDeleteAccount()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body">
+      <div class="field-hint" style="margin:0 0 14px 2px;">This permanently deletes your profile, photos, matches, and messages. This can't be undone. Enter your password to confirm.</div>
+      <div class="password-field-wrap">
+        <input id="da-password" type="password" placeholder="Password" autocomplete="current-password" />
+        <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('da-password', this)" aria-label="Show password" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div id="delete-account-error" class="auth-error" style="display:none;"></div>
+    </div>
+    <div class="filter-panel-footer">
+      <button type="button" class="filter-apply-btn settings-danger-btn" id="delete-account-btn" onclick="submitDeleteAccount()">Permanently delete my account</button>
+    </div>
+  </div>
+
+  <div class="filter-overlay" id="blocked-users-overlay" onclick="closeBlockedUsersPanel()"></div>
+  <div class="filter-panel" id="blocked-users-panel" role="dialog" aria-modal="true" aria-labelledby="blocked-users-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="blocked-users-title">Blocked Users</h2>
+      <button class="filter-panel-close" onclick="closeBlockedUsersPanel()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body" id="blocked-users-body">
+      <div class="field-hint">Loading…</div>
+    </div>
+  </div>
+
+  <div class="filter-overlay" id="orientation-overlay" onclick="closeOrientationPanel()"></div>
+  <div class="filter-panel" id="orientation-panel" role="dialog" aria-modal="true" aria-labelledby="orientation-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="orientation-title">Sexual Orientation</h2>
+      <button class="filter-panel-close" onclick="closeOrientationPanel()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body">
+      <div class="field-hint" style="margin-bottom:12px;">Private — this is used to help with matching and is never shown on your profile.</div>
+      <div class="report-reason-list" id="orientation-options"></div>
+      <div class="auth-error" id="orientation-error" style="display:none;"></div>
+      <button type="button" class="filter-apply-btn" onclick="saveOrientation()" id="orientation-save-btn">Save</button>
+    </div>
+  </div>
+
+  <div class="filter-overlay" id="interested-in-overlay" onclick="closeInterestedInPanel()"></div>
+  <div class="filter-panel" id="interested-in-panel" role="dialog" aria-modal="true" aria-labelledby="interested-in-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="interested-in-title">Interested In</h2>
+      <button class="filter-panel-close" onclick="closeInterestedInPanel()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="filter-panel-body">
+      <div class="field-hint" style="margin-bottom:12px;">Private — controls who's eligible to see you and who you see in Discover. Pick as many as apply.</div>
+      <div class="report-reason-list" id="interested-in-options"></div>
+      <div class="auth-error" id="interested-in-error" style="display:none;"></div>
+      <button type="button" class="filter-apply-btn" onclick="saveInterestedIn()" id="interested-in-save-btn">Save</button>
+    </div>
+  </div>
+
+  <div class="filter-panel" id="filter-panel" role="dialog" aria-modal="true" aria-labelledby="filter-panel-title" aria-hidden="true">
+    <div class="filter-panel-handle"></div>
+    <div class="filter-panel-header">
+      <h2 id="filter-panel-title">Filters</h2>
+      <button class="filter-panel-close" onclick="closeFilterPanel()" aria-label="Close filters"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+    </div>
+
+    <div class="filter-panel-body">
+
+      <div class="filter-section">
+        <p class="filter-section-title">BASIC</p>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Show me</div>
+          <div class="filter-chips" id="f-showme-chips">
+            <button type="button" class="filter-chip" data-group="showMe" data-value="men">Men</button>
+            <button type="button" class="filter-chip" data-group="showMe" data-value="women">Women</button>
+            <button type="button" class="filter-chip" data-group="showMe" data-value="nonbinary">Non-binary</button>
+            <button type="button" class="filter-chip" data-group="showMe" data-value="everyone">Everyone</button>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Age <span class="val" id="f-age-val">18 – 60</span></div>
+          <div class="dual-range">
+            <div class="track"></div>
+            <div class="fill" id="f-age-fill"></div>
+            <input type="range" id="f-age-min" min="18" max="80" value="18" oninput="onDualRangeInput('age', this)" />
+            <input type="range" id="f-age-max" min="18" max="80" value="60" oninput="onDualRangeInput('age', this)" />
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Distance <span class="val" id="f-distance-val">Up to 100 km</span></div>
+          <div class="single-range">
+            <input type="range" id="f-distance" min="1" max="500" value="100" oninput="onSingleRangeInput('distance')" />
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field-label" for="f-filter-country">Country</label>
+          <input class="filter-input" id="f-filter-country" type="text" placeholder="e.g. Philippines" oninput="onTextFilterInput('country', this)" />
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field-label" for="f-city">City</label>
+          <input class="filter-input" id="f-city" type="text" placeholder="e.g. Manila" oninput="onTextFilterInput('city', this)" />
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Languages</div>
+          <div class="filter-chips" id="f-languages-chips">
+            <button type="button" class="filter-chip" data-group="languages" data-value="English">English</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Tagalog">Tagalog</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Spanish">Spanish</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Mandarin">Mandarin</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Japanese">Japanese</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="Korean">Korean</button>
+            <button type="button" class="filter-chip" data-group="languages" data-value="French">French</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">PROFILE</p>
+
+        <div class="filter-field filter-toggle-row">
+          <label class="filter-field-label" for="f-verified">Verified profiles</label>
+          <button type="button" class="filter-switch" id="f-verified" onclick="toggleSwitch('verified')"></button>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Interests</div>
+          <div class="filter-chips" id="f-interests-chips">
+            <button type="button" class="filter-chip" data-group="interests" data-value="travel">Travel</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="music">Music</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="fitness">Fitness</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="foodie">Foodie</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="movies">Movies</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="gaming">Gaming</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="art">Art</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="pets">Pets</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="reading">Reading</button>
+            <button type="button" class="filter-chip" data-group="interests" data-value="outdoors">Outdoors</button>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field-label" for="f-education">Education</label>
+          <select class="filter-select" id="f-education">
+            <option value="">Any</option>
+            <option value="high_school">High school</option>
+            <option value="undergrad">Undergrad</option>
+            <option value="postgrad">Postgrad</option>
+            <option value="phd">PhD</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Height (cm) <span class="val" id="f-height-val">140 – 210</span></div>
+          <div class="dual-range">
+            <div class="track"></div>
+            <div class="fill" id="f-height-fill"></div>
+            <input type="range" id="f-height-min" min="140" max="210" value="140" oninput="onDualRangeInput('height', this)" />
+            <input type="range" id="f-height-max" min="140" max="210" value="210" oninput="onDualRangeInput('height', this)" />
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Exercise</div>
+          <div class="filter-chips" id="f-exercise-chips">
+            <button type="button" class="filter-chip" data-group="exercise" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="exercise" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="exercise" data-value="often">Often</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">LIFESTYLE</p>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Drinking</div>
+          <div class="filter-chips" id="f-drinking-chips">
+            <button type="button" class="filter-chip" data-group="drinking" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="drinking" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="drinking" data-value="often">Often</button>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Smoking</div>
+          <div class="filter-chips" id="f-smoking-chips">
+            <button type="button" class="filter-chip" data-group="smoking" data-value="never">Never</button>
+            <button type="button" class="filter-chip" data-group="smoking" data-value="sometimes">Sometimes</button>
+            <button type="button" class="filter-chip" data-group="smoking" data-value="often">Often</button>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field-label" for="f-religion">Religion</label>
+          <select class="filter-select" id="f-religion">
+            <option value="">Any</option>
+            <option value="christian">Christian</option>
+            <option value="muslim">Muslim</option>
+            <option value="hindu">Hindu</option>
+            <option value="buddhist">Buddhist</option>
+            <option value="jewish">Jewish</option>
+            <option value="spiritual">Spiritual</option>
+            <option value="agnostic">Agnostic</option>
+            <option value="atheist">Atheist</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field-label" for="f-political">Political views</label>
+          <select class="filter-select" id="f-political">
+            <option value="">Any</option>
+            <option value="liberal">Liberal</option>
+            <option value="moderate">Moderate</option>
+            <option value="conservative">Conservative</option>
+            <option value="not_political">Not political</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">FAMILY</p>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Children</div>
+          <div class="filter-chips" id="f-children-chips">
+            <button type="button" class="filter-chip" data-group="children" data-value="has">Has children</button>
+            <button type="button" class="filter-chip" data-group="children" data-value="none">Doesn't have children</button>
+            <button type="button" class="filter-chip" data-group="children" data-value="unspecified">Prefer not to say</button>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Wants children</div>
+          <div class="filter-chips" id="f-wantschildren-chips">
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="yes">Yes</button>
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="no">No</button>
+            <button type="button" class="filter-chip" data-group="wantsChildren" data-value="maybe">Maybe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">DATING</p>
+
+        <div class="filter-field">
+          <div class="filter-field-label">Dating intentions</div>
+          <div class="filter-chips" id="f-intentions-chips">
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="casual">Casual</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="relationship">Relationship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="marriage">Marriage</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="friendship">Friendship</button>
+            <button type="button" class="filter-chip" data-group="datingIntentions" data-value="not_sure">Not sure</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-section-title">ACTIVITY</p>
+
+        <div class="filter-field filter-toggle-row">
+          <label class="filter-field-label" for="f-online">Online now</label>
+          <button type="button" class="filter-switch" id="f-online" onclick="toggleSwitch('onlineNow')"></button>
+        </div>
+
+        <div class="filter-field filter-toggle-row">
+          <label class="filter-field-label" for="f-new">New here</label>
+          <button type="button" class="filter-switch" id="f-new" onclick="toggleSwitch('newHere')"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="filter-panel-footer">
+      <button type="button" class="filter-reset-btn" onclick="resetFilters()">Reset all</button>
+      <button type="button" class="filter-apply-btn" onclick="applyFiltersAndClose()">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+        Apply filters
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="filter-overlay" id="interests-overlay" onclick="closeInterestsPanel()"></div>
+<div class="filter-panel" id="interests-panel" role="dialog" aria-modal="true" aria-labelledby="interests-panel-title" aria-hidden="true">
+  <div class="filter-panel-handle"></div>
+  <div class="filter-panel-header">
+    <h2 id="interests-panel-title">Interests</h2>
+    <button class="filter-panel-close" onclick="closeInterestsPanel()" aria-label="Close interests"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+  </div>
+  <div class="filter-panel-body">
+    <div class="field-hint" style="margin:0 0 14px 2px;">Pick up to 2 interests per category.</div>
+    <div id="interests-panel-body"></div>
+  </div>
+  <div class="filter-panel-footer">
+    <button type="button" class="filter-reset-btn" onclick="clearAllInterests()">Clear all</button>
+    <button type="button" class="filter-apply-btn" onclick="saveInterestsAndClose()">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+      Save interests
+    </button>
+  </div>
+</div>
+
+<script src="/js/core.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="/js/discover.js"></script>
+<script src="/js/interests.js"></script>
+<script src="/js/discover-cards.js"></script>
+<script src="/js/safety.js"></script>
+<script src="/js/lightbox.js"></script>
+<script src="/js/matches.js"></script>
+<script src="/js/explore.js"></script>
+<script src="/js/likes.js"></script>
+<script src="/js/questionnaire.js"></script>
+<script src="/js/profile-completion.js"></script>
+<script src="/js/profile.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/prompts.js"></script>
+<script src="/js/photo-crop.js"></script>
+<script src="/js/settings.js"></script>
+<script src="/js/boot.js"></script>
+</body>
+</html>
